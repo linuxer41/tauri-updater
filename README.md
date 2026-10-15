@@ -10,7 +10,6 @@
 
 <div align="center">
   <h2><a href="https://capgo.app/?ref=plugin_tauri_updater"> Get Instant updates for your App with Capgo</a></h2>
-  <h2><a href="https://capgo.app/consulting/?ref=plugin_tauri_updater"> Missing a feature? We'll build the plugin for you</a></h2>
 </div>
 
 OTA (Over-The-Air) updates for Tauri applications. 100% feature parity with [@capgo/capacitor-updater](https://github.com/Cap-go/capacitor-updater).
