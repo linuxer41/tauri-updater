@@ -102,7 +102,7 @@ export class StatsManager {
 
     const response = await httpFetch(url.toString(), {
       method: 'POST',
-      timeout: this.timeout,
+      connectTimeout: this.timeout,
       headers: {
         'Content-Type': 'application/json',
         'User-Agent': this.userAgent,

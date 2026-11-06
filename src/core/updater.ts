@@ -475,7 +475,7 @@ export class TauriUpdater {
     try {
       const response = await httpFetch(url.toString(), {
         method: 'POST',
-        timeout: this.config.responseTimeout * 1000,
+        connectTimeout: this.config.responseTimeout * 1000,
         headers: {
           'Content-Type': 'application/json',
           'User-Agent': this.buildUserAgent(),

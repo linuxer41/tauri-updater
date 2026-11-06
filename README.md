@@ -26,6 +26,16 @@ Open-source alternative to Tauri's built-in updater with live update capabilitie
 - 📊 **Channel System** - Deploy to different user groups
 - ⏱️ **Delay Conditions** - Control when updates are applied
 
+## Fork (iathings)
+
+Este fork cambia tres cosas sobre `main` de Cap-go/tauri-updater, nada mas, para poder instalarlo con `npm i github:linuxer41/tauri-updater` mientras el paquete no este publicado en npm (0 tags, 404 en el registry):
+
+1. `package.json`: agregado `"prepare": "tsup"`. Sin eso npm aplica el campo `files` al instalar desde git y deja solo `LICENSE`/`README.md`/`package.json`, asi que el import falla.
+2. `tsup.config.ts`: `dts: false`. `src/` tiene errores de tipos propios de upstream (por ejemplo el casteo de `Headers` en `download-manager.ts:170`) que rompen la generacion de `.d.ts`. El consumidor declara la superficie que usa.
+3. `timeout` -> `connectTimeout` en las cuatro llamadas a `fetch` de plugin-http (`updater.ts`, `channel-manager.ts`, `download-manager.ts`, `stats.ts`). `ClientOptions` de `@tauri-apps/plugin-http` no tiene `timeout`, asi que la opcion se ignoraba en runtime; `connectTimeout` es la que existe y es la intencion detras de `responseTimeout`.
+
+El comportamiento OTA (canales, bundles, rollback, estadisticas) no cambia.
+
 ## Installation
 
 ```bash

@@ -159,7 +159,7 @@ export class ChannelManager {
 
     const response = await httpFetch(finalUrl, {
       method,
-      timeout: this.timeout,
+      connectTimeout: this.timeout,
       headers: {
         'Content-Type': 'application/json',
         'User-Agent': this.userAgent,

@@ -158,7 +158,7 @@ export class DownloadManager {
   }
 
   private async downloadToBytes(url: string, onProgress?: ProgressCallback): Promise<Uint8Array> {
-    const response = await httpFetch(url, { method: 'GET', timeout: this.timeout });
+    const response = await httpFetch(url, { method: 'GET', connectTimeout: this.timeout });
 
     if (!response.ok) {
       throw new Error(`Download failed with status ${response.status}`);
